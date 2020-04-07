@@ -1,0 +1,4 @@
+test_task:
+  container:
+    dockerfile: Dockerfile
+  test_script: ls /opt
