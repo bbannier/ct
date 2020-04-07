@@ -8,4 +8,4 @@ test_task:
 
   test_script:
     - which clang++-10
-    - ls /opt/zeek
+    - /opt/zeek/bin/zeek-config --version
