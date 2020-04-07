@@ -3,8 +3,8 @@ test_task:
     dockerfile: Dockerfile
     docker_arguments:
       matrix:
-        - zeek: zeek
-        - zeek: zeek-lts
+        - zeek_flavor: zeek
+        - zeek_flavor: zeek-lts
 
   test_script:
     - which clang++-10
