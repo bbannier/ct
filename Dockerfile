@@ -2,6 +2,8 @@ FROM ubuntu:eoan
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
+ARG zeek_flavor
+
 CMD ["sh"]
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -11,7 +13,7 @@ RUN apt-get update \
  && echo 'deb http://download.opensuse.org/repositories/security:/zeek/xUbuntu_19.10/ /' > /etc/apt/sources.list.d/security:zeek.list \
  && curl https://download.opensuse.org/repositories/security:/zeek/xUbuntu_19.10/Release.key | apt-key add - \
  && apt-get update \
- && apt-get install -y --no-install-recommends zeek \
+ && apt-get install -y --no-install-recommends $zeek_flavor \
  # Spicy build and test dependencies.
  && apt-get install -y --no-install-recommends git ninja-build ccache bison flex libfl-dev python3 python3-pip docker zlib1g-dev jq locales-all python3-setuptools python3-wheel \
  && pip3 install btest pre-commit \
@@ -32,8 +34,3 @@ RUN apt-get update \
 WORKDIR /usr/local/cmake
 RUN curl -L https://github.com/Kitware/CMake/releases/download/v3.15.0/cmake-3.15.0-Linux-x86_64.tar.gz | tar xzvf - -C /usr/local/cmake --strip-components 1
 ENV PATH="/usr/local/cmake/bin:${PATH}"
-
-# ### Spicy
-
-WORKDIR /opt/spicy
-COPY . /opt/spicy

@@ -1,4 +1,11 @@
 test_task:
   container:
     dockerfile: Dockerfile
-  test_script: ls /opt
+    docker_arguments:
+      matrix:
+        - zeek: zeek
+        - zeek: zeek-lts
+
+  test_script:
+    - which clang++-10
+    - ls /opt/zeek
