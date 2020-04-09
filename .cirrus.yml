@@ -1,11 +1,8 @@
 test_task:
-  container:
-    dockerfile: Dockerfile
-    docker_arguments:
-      matrix:
-        - zeek_flavor: zeek
-        - zeek_flavor: zeek-lts
+  site_artifacts:
+    path:
+      site_artifacts
 
-  test_script:
-    - which clang++-10
-    - /opt/zeek/bin/zeek-config --version
+  gen_task:
+    - mkdir -p site_artifacts
+    - date >> site_artifacts/date.txt
