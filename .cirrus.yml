@@ -5,4 +5,4 @@ test_task:
 
   gen_task:
     - mkdir -p site_artifacts
-    - date >> site_artifacts/date.txt
+    - date > site_artifacts/date.txt
