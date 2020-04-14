@@ -1,11 +1,9 @@
 container:
   image: alpine:latest
 
-test_task:
-  site_artifacts:
-    path:
-      site_artifacts
+site_artifacts:
+  path:
+    site_artifacts
 
 gen_task:
-  - mkdir -p site_artifacts
   - date > site_artifacts/date.txt
