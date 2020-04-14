@@ -2,10 +2,10 @@ container:
   image: alpine:latest
 
 gen_task:
-  site_artifacts:
-    path:
-      site_artifacts
-
   gen_script:
     - mkdir -p site_artifacts
     - date > site_artifacts/date.txt
+
+  site_artifacts:
+    path:
+      "site_artifacts/*"
