@@ -1,3 +1,6 @@
+container:
+  image: alpine:latest
+
 test_task:
   site_artifacts:
     path:
