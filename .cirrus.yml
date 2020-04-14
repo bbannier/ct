@@ -3,6 +3,6 @@ test_task:
     path:
       site_artifacts
 
-  gen_task:
-    - mkdir -p site_artifacts
-    - date > site_artifacts/date.txt
+gen_task:
+  - mkdir -p site_artifacts
+  - date > site_artifacts/date.txt
