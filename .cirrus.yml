@@ -5,5 +5,7 @@ gen_task:
   site_artifacts:
     path:
       site_artifacts
-  - mkdir -p site_artifacts
-  - date > site_artifacts/date.txt
+
+  gen_script:
+    - mkdir -p site_artifacts
+    - date > site_artifacts/date.txt
