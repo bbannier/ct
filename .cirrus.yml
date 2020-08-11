@@ -1,5 +1,5 @@
 environment:
-  E: foo
+  E: bar
 
 foo_task:
   container:
