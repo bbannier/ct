@@ -1,11 +1,14 @@
-container:
-  image: alpine:latest
+environment:
+  E: foo
 
-gen_task:
-  gen_script:
-    - mkdir -p site_artifacts
-    - date > site_artifacts/date.txt
+foo_task:
+  container:
+    dockerfile: Dockerfile
+    docker_arguments:
+      - FOO: $E
 
-  site_artifacts:
-    path:
-      "site_artifacts/*"
+  env:
+    EE: foofoo
+
+  cat_script:
+    - cat /foo
