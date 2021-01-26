@@ -1,6 +1,6 @@
 publish_task:
   container:
-    dockerfile: Dockerfile
+    image: alpine
   environment:
     GITHUB_TOKEN: ENCRYPTED[CIRRUS]
   script:
