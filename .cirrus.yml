@@ -1,0 +1,11 @@
+publish_task:
+  container:
+    dockerfile: Dockerfile
+  environment:
+    GITHUB_TOKEN: ENCRYPTED[CIRRUS]
+  script:
+    date > stamp.txt
+    ./ci/publish.sh
+
+  stamp_artifacts:
+    path: stamp.txt
