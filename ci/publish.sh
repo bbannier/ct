@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+# Ideally we would like to check whether we we triggered from a release, but
+# releases are created from an independent Github action. Trigger for releases
+# here and hope that the upload below succeeds (otherwise we need to manually
+# retry after the release was created).
+if [[ "$CIRRUS_RELEASE" == "" ]]; then
+    CIRRUS_RELEASE=$CIRRUS_TAG
+fi
+
 if [[ "$CIRRUS_RELEASE" == "" ]]; then
   echo "Not a release. No need to deploy!"
   exit 0
