@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -x # FIXME
+
 # Ideally we would like to check whether we we triggered from a release, but
 # releases are created from an independent Github action. Trigger for releases
 # here and hope that the upload below succeeds (otherwise we need to manually
@@ -20,7 +22,7 @@ fi
 
 file_content_type="application/octet-stream"
 files_to_upload=(
-  ./stamp/stamp.txt
+  ./stamp/stamp.txt # FIXME
 )
 
 for fpath in $files_to_upload
