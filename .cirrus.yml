@@ -5,8 +5,8 @@ publish_task:
   container:
     image: alpine
   script:
-    date > stamp.txt
-    ./ci/publish.sh
+    - date > stamp.txt
+    - ./ci/publish.sh
 
   stamp_artifacts:
     path: stamp.txt
