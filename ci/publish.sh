@@ -2,6 +2,8 @@
 
 set -x # FIXME
 
+echo "$CIRRUS_REPO_FULL_NAME" # FIXME
+
 # Ideally we would like to check whether we we triggered from a release, but
 # releases are created from an independent Github action. Trigger for releases
 # here and hope that the upload below succeeds (otherwise we need to manually
