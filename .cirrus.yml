@@ -1,8 +1,9 @@
+env:
+  GITHUB_TOKEN: ENCRYPTED[CIRRUS]
+
 publish_task:
   container:
     image: alpine
-  environment:
-    GITHUB_TOKEN: ENCRYPTED[CIRRUS]
   script:
     date > stamp.txt
     ./ci/publish.sh
