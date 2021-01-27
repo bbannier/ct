@@ -3,7 +3,7 @@ env:
 
 publish_task:
   container:
-    image: bash
+    dockerfile: Dockerfile
   script:
     - date > stamp.txt
     - ./ci/publish.sh
