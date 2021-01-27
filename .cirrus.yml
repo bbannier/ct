@@ -3,7 +3,7 @@ env:
 
 publish_task:
   container:
-    image: alpine
+    image: bash
   script:
     - date > stamp.txt
     - ./ci/publish.sh
