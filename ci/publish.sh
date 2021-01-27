@@ -24,7 +24,7 @@ fi
 
 file_content_type="application/octet-stream"
 files_to_upload=(
-  ./stamp/stamp.txt # FIXME
+  ./stamp.txt # FIXME
 )
 
 for fpath in $files_to_upload
