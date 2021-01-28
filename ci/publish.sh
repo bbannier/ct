@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -eu
+
 set -x # FIXME
 
 echo "$CIRRUS_REPO_FULL_NAME" # FIXME
@@ -27,11 +29,13 @@ files_to_upload=(
   ./stamp.txt # FIXME
 )
 
+RELEASE_ID=$(curl https://api.github.com/repos/$CIRRUS_REPO_FULL_NAME/releases | jq '.[] | select(.tag_name=="'$CIRRUS_RELEASE'") | .id')
+
 for fpath in $files_to_upload
 do
   echo "Uploading $fpath..."
   name=$(basename "$fpath")
-  url_to_upload="https://uploads.github.com/repos/$CIRRUS_REPO_FULL_NAME/releases/$CIRRUS_RELEASE/assets?name=$name"
+  url_to_upload="https://api.github.com/repos/$CIRRUS_REPO_FULL_NAME/releases/$RELEASE_ID/assets?name=$name"
   curl -X POST \
     --insecure \
     --data-binary @$fpath \
