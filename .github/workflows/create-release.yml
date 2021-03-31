@@ -34,6 +34,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./foo.tar.bz
+          asset_path: ./foo*.tar.bz
           asset_name: foo-${{ steps.get_version.outputs.version }}.tar.bz
           asset_content_type: application/x-tar
