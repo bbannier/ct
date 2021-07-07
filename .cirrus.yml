@@ -17,5 +17,3 @@ macos_task:
 
   homebrew_script:
     - brew --version
-    - brew update
-    - brew install bison flex cmake ninja python@3.8 sphinx-doc doxygen ccache zeek
