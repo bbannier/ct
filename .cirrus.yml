@@ -10,3 +10,10 @@ publish_task:
 
   stamp_artifacts:
     path: stamp.txt
+
+macos_task:
+  osx_instance:
+    image: catalina-base
+
+  homebrew_script:
+    - brew install bison flex cmake ninja python@3.8 sphinx-doc doxygen ccache zeek
