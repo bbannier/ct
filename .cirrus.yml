@@ -3,7 +3,7 @@ env:
   HOMEBREW_BOTTLE_DOMAIN: https://ghcr.io/v2/homebrew/core
 
 publish_task:
-  container:
+  arm_container:
     dockerfile: Dockerfile
   script:
     - date > stamp.txt
