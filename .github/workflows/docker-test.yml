@@ -11,8 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Dump env
+        env:
+          REF: ${{ github.event.push.ref }}
         run: |
-          echo ${{ github.event.push.ref }}
+          echo $REF
       - uses: actions/checkout@v2
       - name: Checkout submodules
         run: git submodule update --init --recursive
