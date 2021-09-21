@@ -1,10 +1,6 @@
-
 name: Run tests on Docker image
 
 on: [push]
-
-env:
-  TEST_TAG: zeek:latest
 
 jobs:
   build:
@@ -17,5 +13,5 @@ jobs:
           echo "::set-output name=tag::foo/bar"
 
       - name: Conditional
-        if: steps.target.tag != ''
+        if: steps.target.outputs.tag != ''
         run: echo "foo"
