@@ -13,10 +13,10 @@ jobs:
           context: ./
           file: Dockerfile
           load: true
-          tags: FOO
+          tags: foo
 
       - uses: docker/build-push-action@v2
         with:
           context:  ./
           file: Dockerfile
-          tags: BAR
+          tags: bar
